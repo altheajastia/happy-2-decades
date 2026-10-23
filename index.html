@@ -308,7 +308,7 @@
         </div>
     </main>
 
-    <script>
+<script>
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
         }
@@ -347,23 +347,20 @@
         }
 
         const photos = [
-    "https://i.imgur.com/vNAU9y1.jpg",
-    "https://i.imgur.com/Ji7gqX2.jpg",
-    "https://i.imgur.com/v1tKORx.jpg"
-];
+            "https://i.imgur.com/vNAU9y1.jpg",
+            "https://i.imgur.com/Ji7gqX2.jpg",
+            "https://i.imgur.com/v1tKORx.jpg"
+        ];
+        
         let currentSlide = 0;
 
         function updateSlide() {
             const imgEl = document.getElementById('polaroid-img');
-            const captionEl = document.getElementById('polaroid-caption-overlay');
-            const tagEl = document.getElementById('polaroid-tag');
 
-            if (imgEl && captionEl && tagEl) {
+            if (imgEl) {
                 imgEl.style.opacity = '0.3';
                 setTimeout(() => {
-                    imgEl.src = slides[currentSlide].img;
-                    captionEl.textContent = slides[currentSlide].caption;
-                    tagEl.textContent = slides[currentSlide].tag;
+                    imgEl.src = photos[currentSlide];
                     imgEl.style.opacity = '1';
                 }, 200);
             }
@@ -372,12 +369,12 @@
         updateSlide();
 
         function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
+            currentSlide = (currentSlide + 1) % photos.length;
             updateSlide();
         }
 
         function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            currentSlide = (currentSlide - 1 + photos.length) % photos.length;
             updateSlide();
         }
 
@@ -410,5 +407,6 @@
             }
         }
     </script>
+    
 </body>
 </html>
